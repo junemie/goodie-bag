@@ -13,15 +13,17 @@ export class Candy extends Component {
   render() {
     return (
       <div>
-        <h1>All The Candies</h1>
-        {this.props.allCandy.map(candy => (
-          <div key={candy.id}>
-            <h2>{candy.name} </h2>
-            <p>{candy.description}</p>
-            <ul>Quantity: {candy.quantity}</ul>
-            <img src={candy.imageUrl} />
-          </div>
-        ))}
+        <main>
+          <h1>All The Candies</h1>
+          {this.props.allCandy.map(candy => (
+            <div key={candy.id}>
+              <h2>{candy.name} </h2>
+              <p>{candy.description}</p>
+              <ul>Quantity: {candy.quantity}</ul>
+              <img src={candy.imageUrl} />
+            </div>
+          ))}
+        </main>
       </div>
     );
   }
