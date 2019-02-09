@@ -10,8 +10,6 @@ export class Candy extends Component {
     this.props.getAllCandy();
   }
   render() {
-    console.log("ZERO INDEX", this.props.allCandy[0]);
-    console.log(this.props.allCandy);
     return (
       <div>
         <h1>All The Candies</h1>
