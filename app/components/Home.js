@@ -3,7 +3,7 @@ import Candy from "./Candy";
 import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 
-const Root = () => {
+const Home = () => {
   return (
     <div>
       <nav>
@@ -16,11 +16,10 @@ const Root = () => {
       <div>
         <Switch>
           <Route exact path="/candies" component={Candy} />
-          {/* <Route exact path="/" component={Candy} /> */}
         </Switch>
       </div>
     </div>
   );
 };
 
-export default Root;
+export default Home;

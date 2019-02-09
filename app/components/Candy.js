@@ -6,6 +6,7 @@ export class Candy extends Component {
   constructor() {
     super();
   }
+  //the reason why you call the componentDidMount here I need all the candy information.
   componentDidMount() {
     this.props.getAllCandy();
   }
