@@ -16,9 +16,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    let singleCandy = await Candy.findAll({
-      where: { id: req.params.id }
-    });
+    let singleCandy = await Candy.findById(req.params.id);
     res.json(singleCandy);
   } catch (error) {
     next(error);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllCandy } from "../reducers";
+import { Link } from "react-router-dom";
 
 export class Candy extends Component {
   constructor() {
@@ -20,7 +21,9 @@ export class Candy extends Component {
               <h2>{candy.name} </h2>
               <p>{candy.description}</p>
               <ul>Quantity: {candy.quantity}</ul>
-              <img src={candy.imageUrl} />
+              <Link to={`/candies/${candy.id}`}>
+                <img src={candy.imageUrl} />
+              </Link>
             </div>
           ))}
         </main>
