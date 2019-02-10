@@ -13,23 +13,24 @@ export class SingleCandy extends Component {
     this.props.gotSingleCandy(this.props.match.params.id);
   }
   increaseHandler() {
-    let currentQty = this.props.singleCandy.quantity;
-    let id = this.props.match.params.id;
-    this.props.addCandy(currentQty, id);
+    this.props.addCandy(
+      this.props.singleCandy.quantity,
+      this.props.match.params.id
+    );
   }
   decreaseHandler() {
-    let currentQty = this.props.singleCandy.quantity;
-    let id = this.props.match.params.id;
-    this.props.removeCandy(currentQty, id);
+    this.props.removeCandy(
+      this.props.singleCandy.quantity,
+      this.props.match.params.id
+    );
   }
 
   render() {
-    console.log("this is props", this.props);
     const candy = this.props.singleCandy;
     return (
       <div>
         <main>
-          <h1>{candy.name}</h1>
+          <h2>{candy.name}</h2>
           <img src={candy.imageUrl} />
           <p>{candy.description}</p>
           <ul>Quantity: {candy.quantity}</ul>

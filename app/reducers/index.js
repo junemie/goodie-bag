@@ -10,8 +10,8 @@ const initialState = {
 //-----------------ACTION----------------
 const GET_ALL_CANDY = "GET_ALL_CANDY";
 const GET_SINGLE_CANDY = "GET_SINGLE_CANDY";
-const INCREASE_CANDY = "INCREASE_CANDY";
-const DECREASE_CANDY = "DECREASE_CANDY";
+// const INCREASE_CANDY = "INCREASE_CANDY";
+// const DECREASE_CANDY = "DECREASE_CANDY";
 //---------------ACTION CREATOR------------
 //ALL CANDY
 const allCandy = candy => {
