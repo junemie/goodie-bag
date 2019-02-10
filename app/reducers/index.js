@@ -7,11 +7,12 @@ const initialState = {
   singleCandy: {}
 };
 
-//ACTION
+//-----------------ACTION----------------
 const GET_ALL_CANDY = "GET_ALL_CANDY";
 const GET_SINGLE_CANDY = "GET_SINGLE_CANDY";
-
-//ACTION CREATOR
+const INCREASE_CANDY = "INCREASE_CANDY";
+const DECREASE_CANDY = "DECREASE_CANDY";
+//---------------ACTION CREATOR------------
 //ALL CANDY
 const allCandy = candy => {
   return {
@@ -20,7 +21,20 @@ const allCandy = candy => {
   };
 };
 
-//SINGLE CANDY
+const increaseCandy = candy => {
+  return {
+    type: INCREASE_CANDY,
+    candy
+  };
+};
+
+const decreaseCandy = candy => {
+  return {
+    type: DECREASE_CANDY,
+    candy
+  };
+};
+//---------------SINGLE CANDY-------------
 const singleCandy = singleCandy => {
   return {
     type: GET_SINGLE_CANDY,
@@ -28,7 +42,7 @@ const singleCandy = singleCandy => {
   };
 };
 
-//THUNK CREATOR
+//----------------THUNK CREATOR-------------
 //ALL CANDY
 export const getAllCandy = () => {
   return async dispatch => {
@@ -53,7 +67,37 @@ export const gotSingleCandy = id => {
   };
 };
 
-//REDUCER
+//ADD CANDY
+export const addCandy = (currentQty, id) => {
+  return async dispatch => {
+    try {
+      const updatedQuantity = ++currentQty;
+      const result = await Axios.put(`/api/candies/${id}`, {
+        quantity: updatedQuantity
+      });
+      dispatch(singleCandy(result.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+//REMOVE CANDY
+export const removeCandy = (currentQty, id) => {
+  return async dispatch => {
+    try {
+      const updatedQuantity = --currentQty;
+      const result = await Axios.put(`/api/candies/${id}`, {
+        quantity: updatedQuantity
+      });
+      dispatch(singleCandy(result.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+//--------------------REDUCER--------------------
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_ALL_CANDY":

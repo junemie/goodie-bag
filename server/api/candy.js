@@ -23,4 +23,13 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.put("/:id", async (req, res, next) => {
+  try {
+    let candy = await Candy.findById(req.params.id);
+    let updatedCandy = await candy.update(req.body);
+    res.json(updatedCandy);
+  } catch (error) {
+    next(error);
+  }
+});
 module.exports = router;
